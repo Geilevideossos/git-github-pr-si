@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Git & GitHub - Versionskontrolle und Collaboration</title>
+		<title>Chess Bot - Automated Chess Playing Robot</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -31,7 +31,7 @@
 			.comparison-table {
 				font-size: 0.8em;
 				margin: 20px 0;
-			}
+			}	
 			.comparison-table td {
 				padding: 8px;
 				border: 1px solid #666;
@@ -41,578 +41,316 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<!-- SLIDE 1: Title (no nesting) -->
+				<!-- SLIDE 1: Title -->
 				<section>
-					<h1>Git & GitHub</h1>
-					<h3>Versionskontrolle & Collaboration</h3>
-					<p style="margin-top: 60px; font-size: 0.8em;">Die Grundlagen von moderner Softwareentwicklung</p>
-					<p style="margin-top: 40px; font-size: 0.6em;">MTRS - Daniel.Supper 3AHEL - 16.1.2026</p>
+					<h1>♟️ CHESS BOT ♞</h1>
+					<h3>Automated Chess Playing Robot</h3>
+					<p style="margin-top: 60px; font-size: 0.8em;">A 2D Gantry System with Algorithm Intelligence and Elektro Magnetisim</p>
+					<p style="margin-top: 40px; font-size: 0.6em;">HTL Bulme Graz Gösting - Summer Project 2026</p>
+					<p style="margin-top: 30px; font-size: 0.55em; color: #aaa;">Team: Armin Zechner | Arthur Pechman | Daniel Supper</p>
 				</section>
 
-				<!-- SLIDE 2: Linus Torvalds & Git History (1.x horizontal → 1.0, 1.1, 1.2, 1.3 vertical) -->
+				<!-- SLIDE 2: Chess Algorithms History -->
 				<section>
-					<!-- 2.0: Main concept -->
-					<section>
-						<h2>Linus Torvalds</h2>
-						<div style="margin-top: 50px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 15px;"><strong>🇫🇮 Finnland</strong> (1969 - heute)</p>
-							<p style="margin-bottom: 15px;"><strong>👨‍💻 Erfinder von:</strong></p>
-							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li><strong>Linux Kernel (1991):</strong> Das Herzstück des Betriebssystems</li>
-								<li><strong>Git (2005):</strong> Versionskontrollsystem für die Zukunft</li>
-							</ul>
-							<p style="margin-bottom: 15px; font-size: 0.8em; color: #aaa;">💡 Ironisch: Linus hasste CVS (altes Versionskontrollsystem) → Erfand Git in 2 Wochen!</p>
-						</div>
-					</section>
+					<h2>♔ Computer Chess Revolution</h2>
+					<div style="margin-top: 40px; text-align: left; font-size: 0.8em; line-height: 1.9;">
+						<p style="margin-bottom: 25px;"><strong>🎯 Our Inspiration:</strong> Fascinated by how computers play chess!</p>
+						
+						<p style="margin-bottom: 15px;"><strong style="color: #90ee90;">⚡ Deep Blue (1997)</strong></p>
+						<ul style="margin-left: 20px; margin-bottom: 20px; font-size: 0.75em;">
+							<li>IBM's legendary chess algorithm</li>
+							<li>First computer to beat World Champion Garry Kasparov</li>
+							<li>Evaluated 200 million positions per second</li>
+						</ul>
 
-					<!-- 2.1: Problem description -->
-					<section>
-						<h3>Warum erfand Linus Git?</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 20px;"><strong>⚠️ Das Problem (2005):</strong></p>
-							<ul style="margin-left: 20px; margin-bottom: 25px;">
-								<li>Linux Kernel: 10+ Mio. Lines of Code</li>
-								<li>100+ Entwickler weltweit arbeiten daran</li>
-								<li>CVS (altes Tool): Zu langsam, zu kompliziert, zu unreliabel</li>
-							</ul>
-							<p style="margin-bottom: 20px;"><strong>💥 Der Auslöser (2005):</strong></p>
-							<ul style="margin-left: 20px;">
-								<li>Linux-Team nutzte BitKeeper (proprietär, kostenlos)</li>
-								<li>BitKeeper-Hersteller entzog Lizenz → Streit mit Community</li>
-								<li>Linus: "Ich mach mir selbst etwas besseres!"</li>
-							</ul>
-							<p style="margin-top: 25px; font-size: 0.75em; color: #aaa;">✅ Ergebnis: Git in 2 Wochen geschrieben (April 2005)</p>
-						</div>
-					</section>
-
-					<!-- 2.2: Design comparison -->
-					<section>
-						<h3>Linus' Revolutionary Design</h3>
-						<div style="margin-top: 35px; display: flex; gap: 20px;">
-							<div style="flex: 1; text-align: left; font-size: 0.73em;">
-								<h4 style="color: #90ee90;">✅ Git Innovation</h4>
-								<ul style="margin-left: 15px; line-height: 1.3;">
-									<li>🚀 <strong>Dezentral:</strong> Jeder hat VOLLE Kopie</li>
-									<li>⚡ <strong>Blitzschnell:</strong> Alles lokal, nicht Server-abhängig</li>
-									<li>🌳 <strong>Branching:</strong> Leichte parallele Entwicklung</li>
-									<li>🔒 <strong>Sicherheit:</strong> SHA-1 Hash (später SHA-256)</li>
-									<li>🆓 <strong>Open Source:</strong> Freie, offene Entwicklung</li>
-								</ul>
-							</div>
-							<div style="flex: 1; text-align: left; font-size: 0.73em;">
-								<h4 style="color: #ff9999;">❌ CVS/SVN Problem</h4>
-								<ul style="margin-left: 15px; line-height: 1.3;">
-									<li>🐢 Zentralisiert (Single Point of Failure)</li>
-									<li>📡 Network-abhängig → Langsam</li>
-									<li>🤷 Branching = kompliziert</li>
-									<li>❓ Merge-Konflikte = Horror</li>
-									<li>💸 Oft proprietär/teuer</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-
-					<!-- 2.3: Timeline -->
-					<section>
-						<h3>Git Revolution: Von Nischenprodukt zur Norm</h3>
-						<div style="margin-top: 30px; text-align: left; font-size: 0.75em; line-height: 1.6;">
-							<p style="margin-bottom: 10px;"><strong style="color: #4ecdc4;">2005:</strong> Linus veröffentlicht Git | nur Linux Kernel nutzt</p>
-							<p style="margin-bottom: 10px;"><strong style="color: #4ecdc4;">2008:</strong> GitHub gegründet | Git wird populärer</p>
-							<p style="margin-bottom: 10px;"><strong style="color: #4ecdc4;">2010:</strong> GitHub 1M Repositories | Enterprise checkt Git</p>
-							<p style="margin-bottom: 10px;"><strong style="color: #4ecdc4;">2015:</strong> GitHub 20M Repositories | Git = Standard</p>
-							<p style="margin-bottom: 10px;"><strong style="color: #4ecdc4;">2020:</strong> GitHub 200M Repositories | JEDE Software nutzt Git</p>
-							<p style="margin-bottom: 10px;"><strong style="color: #ff9999;">2025:</strong> GitHub 500M+ Repositories | Git = Universalstandard</p>
-						</div>
-						<p style="margin-top: 20px; font-size: 0.7em; color: #aaa;">💡 Git ist so erfolgreich, dass viele nicht mal wissen, dass es mal nicht existiert hat!</p>
-					</section>
+						<p style="margin-bottom: 15px;"><strong style="color: #90ee90;">🏁 Chinook (2007)</strong></p>
+						<ul style="margin-left: 20px; font-size: 0.75em;">
+							<li>Defeated Marion Tinsley (Checkers World Champion)</li>
+							<li>First algorithm to beat all human champions</li>
+							<li>Solved checkers (game is a draw with perfect play)</li>
+						</ul>
+					</div>
 				</section>
 
-				<!-- SLIDE 3: Version Control Basics (3.x horizontal → 3.0, 3.1, 3.2, 3.3 vertical) -->
+				<!-- SLIDE 3: The Team -->
 				<section>
-					<!-- 3.0 -->
-					<section>
-						<h2>Was ist Versionskontrolle?</h2>
-						<div style="margin-top: 50px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 20px;"><strong>📚 Definition:</strong> Ein System, das alle Versionen deines Codes speichert</p>
-							<p style="margin-bottom: 20px;"><strong>💾 Du kannst:</strong></p>
-							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li>Änderungen speichern (Commits)</li>
-								<li>Zurück zu alten Versionen gehen</li>
-								<li>Parallel arbeiten (Branching)</li>
-								<li>Zusammenarbeiten (Merging)</li>
-							</ul>
-							<p style="margin-bottom: 20px; font-size: 0.8em; color: #aaa;">🎯 <strong>Real-Life Vergleich:</strong> Wie die "Versionshistorie" in Google Docs, aber für Code!</p>
+					<h2>👥 The Team</h2>
+					<div style="margin-top: 50px; display: flex; gap: 30px; text-align: left; font-size: 0.8em;">
+						<div style="flex: 1; background: rgba(100, 200, 255, 0.1); padding: 20px; border-radius: 5px;">
+							<h4 style="color: #90ee90;">Armin Zechner</h4>
+							<p>🔧 Project Lead</p>
+							<p>💻 Embedded Programming</p>
+							<p>🎮 Algorithm & Game Logic</p>
 						</div>
-					</section>
-
-					<!-- 3.1 -->
-					<section>
-						<h3>Warum ist Versionskontrolle ESSENTIELL?</h3>
-						<div style="margin-top: 35px; display: flex; gap: 20px;">
-							<div style="flex: 1; text-align: left; font-size: 0.72em;">
-								<h4 style="color: #90ee90;">✅ Mit Git</h4>
-								<ul style="margin-left: 15px; line-height: 1.3;">
-									<li>📜 Vollständige Historie</li>
-									<li>⏮️ Jederzeit zurückgehen</li>
-									<li>🤝 Team-Zusammenarbeit</li>
-									<li>🔀 Parallel arbeiten</li>
-									<li>🔍 Wer änderte was?</li>
-									<li>🛡️ Backup autom.</li>
-								</ul>
-							</div>
-							<div style="flex: 1; text-align: left; font-size: 0.72em;">
-								<h4 style="color: #ff9999;">❌ Ohne Versionskontrolle</h4>
-								<ul style="margin-left: 15px; line-height: 1.3;">
-									<li>😰 Nur eine Datei</li>
-									<li>💥 Änderung versenkt Altes</li>
-									<li>👻 Keine Teamarbeit</li>
-									<li>⚔️ Merge = manuell + Fehler</li>
-									<li>🤷 Wer änderte was? Keine Ahnung</li>
-									<li>💻 Lokale Backups = unpraktisch</li>
-								</ul>
-							</div>
+						<div style="flex: 1; background: rgba(100, 200, 255, 0.1); padding: 20px; border-radius: 5px;">
+							<h4 style="color: #90ee90;">Arthur Pechman</h4>
+							<p>🏗️ Soldering and wiring</p>
+							<p>⚙️ Hardware Design</p>
+							<p>🖨️ 3D Print Design</p>
 						</div>
-					</section>
-
-					<!-- 3.2 -->
-					<section>
-						<h3>Git Grundkonzepte</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.8em;">
-							<p style="margin-bottom: 15px;"><strong>📁 Repository:</strong> Dein Projekt-Ordner mit Git-Historie</p>
-							<p style="margin-bottom: 15px;"><strong>✅ Commit:</strong> Eine "Speicherung" mit Änderungen + Nachricht</p>
-							<p style="margin-bottom: 15px;"><strong>🌳 Branch:</strong> Paralleler Entwicklungszweig (z.B. "feature-xyz")</p>
-							<p style="margin-bottom: 15px;"><strong>🔄 Merge:</strong> Zwei Branches zusammenführen</p>
-							<p style="margin-bottom: 15px;"><strong>📤 Push:</strong> Deine Commits zum Server hochladen</p>
-							<p style="margin-bottom: 15px;"><strong>📥 Pull:</strong> Neue Commits vom Server herunterladen</p>
+						<div style="flex: 1; background: rgba(100, 200, 255, 0.1); padding: 20px; border-radius: 5px;">
+							<h4 style="color: #90ee90;">Daniel Supper</h4>
+							<p>🤖 2D Gantry Design and Construktion</p>
+							<p>📊 Planning & Documentation</p>
+							<p>💰 Project Management</p>
 						</div>
-					</section>
-
-					<!-- 3.3 -->
-					<section>
-						<h3>Git Workflow: Schritt für Schritt</h3>
-						<div style="margin-top: 30px; font-size: 0.75em;">
-							<div style="background: #ff6b6b; padding: 12px; margin: 5px 0; border-radius: 5px;">
-								<strong>1. Du änderst Dateien (Working Directory)</strong><br>
-								<span style="font-size: 0.8em; color: #ddd;">$ nano file.py   ← du editierst</span>
-							</div>
-							<div style="background: #4ecdc4; padding: 12px; margin: 5px 0; border-radius: 5px;">
-								<strong>2. Änderungen staging (Index)</strong><br>
-								<span style="font-size: 0.8em; color: #000;">$ git add file.py   ← zum Speichern vormerken</span>
-							</div>
-							<div style="background: #95e1d3; padding: 12px; margin: 5px 0; border-radius: 5px;">
-								<strong>3. Commit (Local Repository)</strong><br>
-								<span style="font-size: 0.8em; color: #000;">$ git commit -m "Fixed bug"   ← lokal speichern</span>
-							</div>
-							<div style="background: #ffd93d; padding: 12px; margin: 5px 0; border-radius: 5px;">
-								<strong>4. Push (Remote Repository)</strong><br>
-								<span style="font-size: 0.8em; color: #000;">$ git push   ← zu GitHub hochladen</span>
-							</div>
-							<p style="margin-top: 20px; font-size: 0.7em; color: #aaa;">💡 Git speichert LOKAL, Push teilt mit anderen!</p>
-						</div>
-					</section>
+					</div>
 				</section>
 
-				<!-- SLIDE 4: Git Commands (4.x horizontal → 4.0, 4.1, 4.2, 4.3, 4.4 vertical) -->
+				<!-- SLIDE 3: Overview - The Big Picture -->
 				<section>
-					<!-- 4.0 -->
-					<section>
-						<h2>Die 10 wichtigsten Git Befehle</h2>
-						<table class="comparison-table" style="margin-top: 25px; width: 95%; font-size: 0.65em;">
-							<tr style="background: #555;">
-								<th style="padding: 6px;">Befehl</th>
-								<th style="padding: 6px;">Was macht er?</th>
-								<th style="padding: 6px;">Beispiel</th>
-							</tr>
-							<tr>
-								<td><strong>git init</strong></td>
-								<td>Neues Repo starten</td>
-								<td>$ git init my-project</td>
-							</tr>
-							<tr>
-								<td><strong>git clone</strong></td>
-								<td>Repo kopieren</td>
-								<td>$ git clone &lt;url&gt;</td>
-							</tr>
-							<tr>
-								<td><strong>git add</strong></td>
-								<td>Dateien staging</td>
-								<td>$ git add file.py</td>
-							</tr>
-							<tr>
-								<td><strong>git commit</strong></td>
-								<td>Speichern mit Nachricht</td>
-								<td>$ git commit -m "msg"</td>
-							</tr>
-							<tr>
-								<td><strong>git push</strong></td>
-								<td>Zu Server hochladen</td>
-								<td>$ git push origin main</td>
-							</tr>
-							<tr>
-								<td><strong>git pull</strong></td>
-								<td>Vom Server downloaden</td>
-								<td>$ git pull origin main</td>
-							</tr>
-							<tr>
-								<td><strong>git status</strong></td>
-								<td>Zeigt geänderte Dateien</td>
-								<td>$ git status</td>
-							</tr>
-							<tr>
-								<td><strong>git log</strong></td>
-								<td>Zeigt Commit-Historien</td>
-								<td>$ git log</td>
-							</tr>
-							<tr>
-								<td><strong>git branch</strong></td>
-								<td>Zweige verwalten</td>
-								<td>$ git branch feature-x</td>
-							</tr>
-							<tr>
-								<td><strong>git merge</strong></td>
-								<td>Branches kombinieren</td>
-								<td>$ git merge feature-x</td>
-							</tr>
-						</table>
-					</section>
-
-					<!-- 4.1 -->
-					<section>
-						<h3>git init: Ein neues Projekt starten</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.8em;">
-							<p style="margin-bottom: 15px;"><strong>Was:</strong> Konvertiert einen normalen Ordner zu einem Git Repository</p>
-							<p style="margin-bottom: 20px;"><strong>Wo:</strong> Im Projektordner ausführen</p>
-							<pre style="background: #1a1a1a; padding: 15px; border-radius: 5px; font-size: 0.75em;">
-$ cd my-project
-$ git init</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>Was passiert:</strong> Git erzeugt .git Ordner (versteckt) mit Konfiguration</p>
-							<p style="font-size: 0.75em; color: #aaa;">💡 Hinweis: Brauchst du ein existierendes Projekt zu klonen? → git clone!</p>
-						</div>
-					</section>
-
-					<!-- 4.2 -->
-					<section>
-						<h3>git add & git commit: Speichern</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.78em;">
-							<p style="margin-bottom: 15px;"><strong>1. git add - Staging:</strong> Dateien vormerken</p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git add file.py        # Eine Datei
-$ git add .              # ALLE Dateien</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>2. git commit - Speichern:</strong> Mit Nachricht speichern</p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git commit -m "Fixed login bug"  # Mit Nachricht
-$ git commit                       # Editor öffnet sich</pre>
-							<p style="margin-top: 20px; font-size: 0.75em; color: #aaa;">💡 Best Practice: Gute Commit-Nachrichten schreiben (z.B. "Fix: ..." oder "Feature: ...")</p>
-						</div>
-					</section>
-
-					<!-- 4.3 -->
-					<section>
-						<h3>git push & git pull: Zusammenarbeit</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.78em;">
-							<p style="margin-bottom: 15px;"><strong>git push - Hochladen:</strong> Deine Commits zu GitHub/Server</p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git push origin main   # Zu "main" Branch pushen</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>git pull - Herunterladen:</strong> Neue Commits vom Server</p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git pull origin main   # Vom "main" Branch pullen</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>Workflow:</strong> pull (aktuell) → edit → add → commit → push</p>
-							<p style="font-size: 0.75em; color: #aaa;">⚠️ IMMER pullen vor push! Sonst Konflikte!</p>
-						</div>
-					</section>
-
-					<!-- 4.4 -->
-					<section>
-						<h3>git status & git log: Übersicht</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.78em;">
-							<p style="margin-bottom: 15px;"><strong>git status - Wo bin ich?</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git status
-# Output:
-# Changes to be committed:
-#   modified: file.py
-# Changes not staged for commit:
-#   modified: main.py</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>git log - Commit-Historien:</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git log --oneline  # Kurze Zusammenfassung
-$ git log            # Vollständig mit Details</pre>
-							<p style="margin-top: 20px; font-size: 0.75em; color: #aaa;">💡 Häufig nutzen um zu verstehen was passiert ist!</p>
-						</div>
-					</section>
+					<h2>🎯 The Concept</h2>
+					<div style="margin-top: 40px; text-align: left; font-size: 0.85em; line-height: 1.8;">
+						<p style="margin-bottom: 20px;">✅ <strong>Giant 3D-Printed Case</strong> with chessboard on top</p>
+						<p style="margin-bottom: 20px;">✅ <strong>2D Gantry</strong>  moves an Electromagnet in an X & Y Grid</p>
+						<p style="margin-bottom: 20px;">✅ <strong>Magnetic Chess Pieces</strong> with permanent magnets on bottom</p>
+						<p style="margin-bottom: 20px;">✅ <strong>Algorithm-Powered</strong> ESP32 plays against user</p>
+						<p style="margin-bottom: 20px;">✅ <strong>4x4 Keypad</strong> for user input (A-H + 1-8)</p>
+						<p style="margin-bottom: 20px;">✅ <strong>LCD Display</strong> shows board state & error messages</p>
+					</div>
 				</section>
 
-				<!-- SLIDE 5: Branching (5.x horizontal → 5.0, 5.1, 5.2, 5.3 vertical) -->
+				<!-- SLIDE 4: Hardware Stack -->
+				<section>
+					<h2>⚡ Power Distribution</h2>
+					<div style="margin-top: 50px; font-size: 0.8em;">
+						<div style="background: #ff6b6b; padding: 15px; margin: 10px 0; border-radius: 5px; color: #000;">
+							<strong>24V Power Supply</strong><br>
+							<span style="font-size: 0.85em;">AC/DC Converter Main Power for elektromagnet</span>
+						</div>
+						<div style="background: #ffd93d; padding: 15px; margin: 10px 0; border-radius: 5px; color: #000;">
+							<strong>↓ 24V → 12V Step down module</strong><br>
+							<span style="font-size: 0.85em;">Stepper Motors + Driver Boards</span>
+						</div>
+						<div style="background: #95e1d3; padding: 15px; margin: 10px 0; border-radius: 5px; color: #000;">
+							<strong>↓ 12V → 5V Step down module</strong><br>
+							<span style="font-size: 0.85em;">ESP32 Microcontroller</span>
+						</div>
+						<div style="background: #4ecdc4; padding: 15px; margin: 10px 0; border-radius: 5px; color: #000;">
+							<strong>📡 ESP32 Controls Everything</strong><br>
+						<span style="font-size: 0.85em;">Algorithm Chess Engine + Gantry Movement + Display</span>
+						</div>
+					</div>
+				</section>
+
+				<!-- SLIDE 5: Physical System (5.0, 5.1, 5.2 vertical) -->
 				<section>
 					<!-- 5.0 -->
 					<section>
-						<h2>Branching: Parallel entwickeln</h2>
-						<div style="margin-top: 45px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 20px;"><strong>🌳 Was ist ein Branch?</strong> Ein isolierter "Entwicklungszweig"</p>
-							<p style="margin-bottom: 20px;"><strong>💡 Konzept:</strong> Wie bei Minecraft - parallele Welten spielen</p>
+						<h2>🤖 2D Gantry System</h2>
+						<div style="margin-top: 40px; text-align: left; font-size: 0.85em; line-height: 1.8;">
+							<p style="margin-bottom: 20px;"><strong>📐 Two Motion Axes:</strong></p>
 							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li>Hauptzweig = "main" (Produktionsversion)</li>
-								<li>Feature-Branch = "feature/login" (neue Features)</li>
-								<li>Bugfix-Branch = "bugfix/crash" (Fehlerbehebung)</li>
+								<li><strong>X-Axis:</strong> Left-Right movement (four graveyard and A-H columns)</li>
+								<li><strong>Y-Axis:</strong> Forward-Backward movement (1-8 rows)</li>
 							</ul>
-							<p style="margin-bottom: 20px;"><strong>✅ Vorteil:</strong> Team kann gleichzeitig arbeiten ohne sich zu stören!</p>
+							<p style="margin-bottom: 20px;" font-size: 0.75em; color: #aaa;">Movement controlled by stepper motors for ±2mm accuracy</p>
+							<p style="font-size: 0.75em; color: #aaa;">Can reach all 64 squares + 32 graveyard positions</p>
 						</div>
 					</section>
 
 					<!-- 5.1 -->
 					<section>
-						<h3>git branch: Branches verwalten</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.78em;">
-							<p style="margin-bottom: 15px;"><strong>Einen Branch SEHEN:</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git branch               # Alle lokalen Branches
-$ git branch -a            # Alle (lokal + remote)</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>Einen neuen Branch ERSTELLEN:</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git branch feature/login  # Branch erstellen
-$ git checkout feature/login # Zu Branch wechseln</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>Shortcut - beides zusammen:</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git checkout -b feature/login  # Erstellen + Wechsel</pre>
-							<p style="margin-top: 20px; font-size: 0.75em; color: #aaa;">💡 Branch = isolierter Arbeitsbereich</p>
+						<h3>🧲 Electromagnet Mechanism</h3>
+						<div style="margin-top: 50px; text-align: left; font-size: 0.8em; line-height: 1.9;">
+							<p style="margin-bottom: 20px;"><strong>Power & Force:</strong></p>
+							<ul style="margin-left: 20px; margin-bottom: 20px;">
+								<li>24V 6A electromagnet mounted on the gantry</li>
+								<li>STRONG pulling force: ~5kg magnetic power</li>
+							</ul>
+							<p style="margin-bottom: 20px;"><strong>Piece Interaction:</strong></p>
+							<ul style="margin-left: 20px;">
+								<li>Permanent magnets glued to bottom of each piece</li>
+								<li>Distance: ~3mm below actual piece surface</li>
+							</ul>
 						</div>
 					</section>
 
 					<!-- 5.2 -->
 					<section>
-						<h3>git merge: Zusammenführen</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.78em;">
-							<p style="margin-bottom: 15px;"><strong>Feature fertig → merge zu main:</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git checkout main                # Zu main wechseln
-$ git pull origin main             # Aktuellste Version
-$ git merge feature/login          # Feature mergen</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>Merge erfolgreich → Push:</strong></p>
-							<pre style="background: #1a1a1a; padding: 12px; border-radius: 5px; font-size: 0.7em;">
-$ git push origin main             # Zu GitHub</pre>
-							<p style="margin-top: 20px; margin-bottom: 15px;"><strong>⚠️ Merge-Konflikte möglich:</strong></p>
-							<p style="font-size: 0.75em; color: #ff9999;">Wenn zwei Branches die GLEICHE Datei ändern → Git kann nicht automatisch entscheiden</p>
-							<p style="font-size: 0.75em; color: #aaa;">Lösung: Manuell editieren und erneut committen</p>
-						</div>
-					</section>
-
-					<!-- 5.3 -->
-					<section>
-						<h3>Typischer Team-Workflow</h3>
-						<div style="margin-top: 30px; font-size: 0.76em;">
-							<div style="background: rgba(100, 200, 255, 0.1); padding: 15px; margin: 10px 0; border-left: 4px solid #64c8ff; border-radius: 3px;">
-								<strong>1️⃣ Main Branch ist immer stabil</strong><br>
-								<span style="font-size: 0.8em; color: #aaa;">Nur getesteter, funktionierender Code</span>
-							</div>
-							<div style="background: rgba(100, 200, 255, 0.1); padding: 15px; margin: 10px 0; border-left: 4px solid #64c8ff; border-radius: 3px;">
-								<strong>2️⃣ Neuer Feature → Branch erstellen</strong><br>
-								<span style="font-size: 0.8em; color: #aaa;">z.B. git checkout -b feature/dark-mode</span>
-							</div>
-							<div style="background: rgba(100, 200, 255, 0.1); padding: 15px; margin: 10px 0; border-left: 4px solid #64c8ff; border-radius: 3px;">
-								<strong>3️⃣ Entwickeln & Commits machen</strong><br>
-								<span style="font-size: 0.8em; color: #aaa;">Änderungen → add → commit → push</span>
-							</div>
-							<div style="background: rgba(100, 200, 255, 0.1); padding: 15px; margin: 10px 0; border-left: 4px solid #64c8ff; border-radius: 3px;">
-								<strong>4️⃣ Pull Request öffnen (GitHub)</strong><br>
-								<span style="font-size: 0.8em; color: #aaa;">Team kann Code reviewen</span>
-							</div>
-							<div style="background: rgba(100, 200, 255, 0.1); padding: 15px; margin: 10px 0; border-left: 4px solid #64c8ff; border-radius: 3px;">
-								<strong>5️⃣ Merge zu Main</strong><br>
-								<span style="font-size: 0.8em; color: #aaa;">Feature ist jetzt produktiv</span>
-							</div>
+						<h3>⚙️ Precision & Positioning</h3>
+						<div style="margin-top: 50px; text-align: left; font-size: 0.8em; line-height: 1.9;">
+							<p style="margin-bottom: 20px;"><strong>Motion Control:</strong></p>
+							<ul style="margin-left: 20px; margin-bottom: 20px;">
+								<li>NEMA 17 Stepper Motors on both axes</li>
+								<li>Microstepping for smooth movement</li>
+								<li>Independent X & Y control via ESP32</li>
+							</ul>
+							<p style="margin-bottom: 20px;"><strong>Accuracy & Coverage:</strong></p>
+							<ul style="margin-left: 20px;">
+								<li>±2mm positioning accuracy per square</li>
+								<li>Covers standard 8x8 board + side graveyard areas</li>
+							</ul>
 						</div>
 					</section>
 				</section>
 
-				<!-- SLIDE 6: GitHub (6.x horizontal → 6.0, 6.1 vertical) -->
+				<!-- SLIDE 6: User Interface -->
 				<section>
-					<!-- 6.0 -->
-					<section>
-						<h2>GitHub: Cloud für deine Repositories</h2>
-						<div style="margin-top: 45px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 20px;"><strong>🌐 Was ist GitHub?</strong> Platform für Git Repositories in der Cloud</p>
-							<p style="margin-bottom: 20px;"><strong>🔑 Mit GitHub kannst du:</strong></p>
-							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li>Code mit Team teilen</li>
-								<li>Backups haben (nicht nur lokal)</li>
-								<li>Pull Requests machen (Code Review)</li>
-								<li>Issues/Bugs tracken</li>
-								<li>Open Source Projekte verwalten</li>
-							</ul>
-							<p style="margin-bottom: 20px; font-size: 0.75em; color: #aaa;">📊 GitHub hat 100 Millionen Entwickler weltweit!</p>
-						</div>
-					</section>
-
-					<!-- 6.1 -->
-					<section>
-						<h2>Pull Requests: Code Review</h2>
-						<div style="margin-top: 45px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 20px;"><strong>🔍 Was ist ein Pull Request?</strong> Anfrage um Code-Änderungen zu mergen</p>
-							<p style="margin-bottom: 20px;"><strong>Workflow:</strong></p>
-							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li>1️⃣ Du pushst deinen Branch zu GitHub</li>
-								<li>2️⃣ "Create Pull Request" Button klicken</li>
-								<li>3️⃣ Team reviewt deinen Code</li>
-								<li>4️⃣ Feedback & Verbesserungen</li>
-								<li>5️⃣ "Merge" Button → fertig!</li>
-							</ul>
-							<p style="font-size: 0.75em; color: #aaa;">💡 Best Practice in Profis: Code muss reviewed werden bevor merged!</p>
-						</div>
-					</section>
+					<h2>🎮 User Control System</h2>
+					<div style="margin-top: 40px; text-align: left; font-size: 0.8em;">
+						<p style="margin-bottom: 20px;"><strong>⌨️ 4x4 Keypad Layout:</strong></p>
+						<table style="margin-left: 20px; margin-bottom: 25px; font-size: 0.75em;">
+							<tr>
+								<td style="padding: 8px; border: 1px solid #666;">A</td>
+								<td style="padding: 8px; border: 1px solid #666;">B</td>
+								<td style="padding: 8px; border: 1px solid #666;">C</td>
+								<td style="padding: 8px; border: 1px solid #666;">D</td>
+							</tr>
+							<tr>
+								<td style="padding: 8px; border: 1px solid #666;">E</td>
+								<td style="padding: 8px; border: 1px solid #666;">F</td>
+								<td style="padding: 8px; border: 1px solid #666;">G</td>
+								<td style="padding: 8px; border: 1px solid #666;">H</td>
+							</tr>
+							<tr>
+								<td style="padding: 8px; border: 1px solid #666;">1</td>
+								<td style="padding: 8px; border: 1px solid #666;">2</td>
+								<td style="padding: 8px; border: 1px solid #666;">3</td>
+								<td style="padding: 8px; border: 1px solid #666;">4</td>
+							</tr>
+							<tr>
+								<td style="padding: 8px; border: 1px solid #666;">5</td>
+								<td style="padding: 8px; border: 1px solid #666;">6</td>
+								<td style="padding: 8px; border: 1px solid #666;">7</td>
+								<td style="padding: 8px; border: 1px solid #666;">8</td>
+							</tr>
+						</table>
+						<p style="margin-bottom: 15px;"><strong>📍 How to Play:</strong></p>
+						<ul style="margin-left: 20px;">
+							<li>Step 1: Press Source Square (e.g., E2 for pawn)</li>
+							<li>Step 2: Press Target Square (e.g., E4 where to move)</li>
+							<li>Gantry automatically moves piece!</li>
+						</ul>
+					</div>
 				</section>
 
-				<!-- SLIDE 7: Git vs CVS (7.x horizontal → 7.0, 7.1 vertical) -->
+				<!-- SLIDE 7: Display & Feedback (7.0, 7.1 vertical) -->
 				<section>
 					<!-- 7.0 -->
 					<section>
-						<h2>Git vs CVS vs Subversion (SVN)</h2>
-						<table class="comparison-table" style="margin-top: 35px; width: 95%; font-size: 0.65em;">
-							<tr style="background: #555;">
-								<th style="padding: 6px;">Feature</th>
-								<th style="padding: 6px;">Git</th>
-								<th style="padding: 6px;">CVS (alt)</th>
-								<th style="padding: 6px;">SVN (veraltet)</th>
-							</tr>
-							<tr>
-								<td><strong>Dezentralisiert</strong></td>
-								<td style="background: rgba(100, 255, 100, 0.2);">✅ Jede Kopie vollständig</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">❌ Nur Server</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">❌ Nur Server</td>
-							</tr>
-							<tr>
-								<td><strong>Schnelligkeit</strong></td>
-								<td style="background: rgba(100, 255, 100, 0.2);">⚡ Blitzschnell</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">🐢 Langsam</td>
-								<td style="background: rgba(255, 150, 100, 0.2);">Mittel</td>
-							</tr>
-							<tr>
-								<td><strong>Branching</strong></td>
-								<td style="background: rgba(100, 255, 100, 0.2);">🌳 Einfach, günstig</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">❌ Kompliziert</td>
-								<td style="background: rgba(255, 150, 100, 0.2);">Mühsam</td>
-							</tr>
-							<tr>
-								<td><strong>Offline?</strong></td>
-								<td style="background: rgba(100, 255, 100, 0.2);">✅ Volle Funktion</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">❌ Benötigt Server</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">❌ Benötigt Server</td>
-							</tr>
-							<tr>
-								<td><strong>Heute noch nutzen?</strong></td>
-								<td style="background: rgba(100, 255, 100, 0.2);">✅✅✅ Standard</td>
-								<td style="background: rgba(255, 100, 100, 0.2);">🪦 NEIN!</td>
-								<td style="background: rgba(255, 150, 100, 0.2);">Nur Legacy</td>
-							</tr>
-						</table>
+						<h2>📺 Digital Board State</h2>
+						<div style="margin-top: 50px; text-align: left; font-size: 0.85em; line-height: 1.8;">
+							<p style="margin-bottom: 20px;"><strong>Real-Time Board Visualization:</strong></p>
+							<ul style="margin-left: 20px; margin-bottom: 20px;">
+								<li>Shows exactly what algorithm "sees" on board</li>
+								<li>Live representation of all 32 pieces</li>
+								<li>Real-time tracking of game state</li>
+							</ul>
+							<p style="margin-bottom: 20px;"><strong>Updates:</strong></p>
+							<ul style="margin-left: 20px;">
+								<li>After each move (human or algorithm)</li>
+								<li>Piece positions synchronized with gantry</li>
+							</ul>
+						</div>
 					</section>
 
 					<!-- 7.1 -->
 					<section>
-						<h3>Warum hat Git gewonnen?</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 15px;"><strong>🚀 Git Vorteile:</strong></p>
+						<h3>⚠️ System Messages & Feedback</h3>
+						<div style="margin-top: 50px; text-align: left; font-size: 0.8em; line-height: 1.8;">
+							<p style="margin-bottom: 20px;"><strong>Success Messages:</strong></p>
 							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li><strong>Dezentralisierung:</strong> Keine Abhängigkeit von einem Server</li>
-								<li><strong>Geschwindigkeit:</strong> Alle Operationen lokal → blitzschnell</li>
-								<li><strong>Branching:</strong> Leicht und sicher parallele Entwicklung</li>
-								<li><strong>Sicherheit:</strong> Kryptographische Hashes für Integrität</li>
-								<li><strong>Community:</strong> Open Source, GitHub-Ökosystem</li>
+								<li>✅ "Move completed" - piece moved successfully</li>
+								<li>🤖 "Algorithm thinking..." - computer calculating next move</li>
 							</ul>
-							<p style="margin-top: 20px; font-size: 0.75em; color: #aaa;">💡 Git passt perfekt zu modernem Open-Source-Entwicklung und weltweiter Zusammenarbeit!</p>
+							<p style="margin-bottom: 20px;"><strong>Error Notifications:</strong></p>
+							<ul style="margin-left: 20px;">
+								<li>❌ "Illegal move!" - invalid square or move violation</li>
+								<li>❌ "King in check" - forces legal response</li>
+								<li>💡 System status & hardware diagnostics</li>
+							</ul>
 						</div>
 					</section>
 				</section>
 
-				<!-- SLIDE 8: Teams (8.x horizontal → 8.0, 8.1 vertical) -->
+				<!-- SLIDE 8: Algorithm & Game Logic (8.0, 8.1 vertical) -->
 				<section>
 					<!-- 8.0 -->
 					<section>
-						<h2>Warum Git für Teams unverzichtbar ist</h2>
-						<div style="margin-top: 45px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 20px;"><strong>📈 Die Realität:</strong> Heutzutage arbeitet KEIN Entwickler allein</p>
+						<h2>🧠 Chess Algorithm Engine</h2>
+						<div style="margin-top: 50px; text-align: left; font-size: 0.85em; line-height: 1.8;">
+							<p style="margin-bottom: 20px;"><strong>Platform:</strong> ESP32 Microcontroller (C++ Implementation)</p>
 							<ul style="margin-left: 20px; margin-bottom: 20px;">
-								<li><strong>Kleine Teams:</strong> 2-10 Personen</li>
-								<li><strong>Große Unternehmen:</strong> 100+ Entwickler</li>
-								<li><strong>Open Source:</strong> 1000+ Entwickler worldwide</li>
+								<li>Lightweight embedded chess algorithm</li>
+								<li>Runs all calculations locally on ESP32</li>
+								<li>No cloud dependency - fully autonomous</li>
 							</ul>
-							<p style="margin-bottom: 20px; margin-top: 25px;"><strong>⚡ Ohne Git wäre Zusammenarbeit:</strong></p>
+							<p style="margin-bottom: 20px;"><strong>Move Calculation:</strong></p>
 							<ul style="margin-left: 20px;">
-								<li>🔴 Kein nachverfolgbarer Verlauf</li>
-								<li>🔴 Ständige Merge-Konflikte (Datei senden?!)</li>
-								<li>🔴 Niemand weiß wer was änderte</li>
-								<li>🔴 Zurückgehen unmöglich</li>
+								<li>Real-time processing of game positions</li>
+								<li>Strategic decision-making in seconds</li>
+								<li>Memory-efficient data structures</li>
 							</ul>
 						</div>
 					</section>
 
 					<!-- 8.1 -->
 					<section>
-						<h3>Git Best Practices für Teams</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.82em;">
-							<p style="margin-bottom: 15px;"><strong>✅ Main Branch Schutz:</strong> Nur getesteter Code, Reviews erforderlich</p>
-							<p style="margin-bottom: 15px;"><strong>✅ Gute Commit-Messages:</strong> "Fix: Bug in login" statt "asdf"</p>
-							<p style="margin-bottom: 15px;"><strong>✅ Regelmäßig Pullen:</strong> Vor dem Starten zu arbeiten</p>
-							<p style="margin-bottom: 15px;"><strong>✅ Feature Branches:</strong> Jedes Feature in eigenem Branch</p>
-							<p style="margin-bottom: 15px;"><strong>✅ Code Reviews:</strong> Immer reviewen vor Merge</p>
-							<p style="margin-top: 20px; font-size: 0.75em; color: #aaa;">💡 Git ist nur ein Tool - gute Prozesse im Team sind wichtiger!</p>
-						</div>
-					</section>
-				</section>
-
-				<!-- SLIDE 9: Fazit (9.x horizontal → 9.0, 9.1 vertical) -->
-				<section>
-					<!-- 9.0 -->
-					<section>
-						<h2>Fazit: Git ist überall</h2>
-						<div style="margin-top: 45px; text-align: left; font-size: 0.9em; line-height: 1.8;">
-							<p style="margin-bottom: 15px;"><strong>🎯 Git ist der Standard:</strong> 95%+ aller Projekte nutzen Git</p>
-							<p style="margin-bottom: 15px;"><strong>🌍 GitHub dominiert:</strong> 500M+ Repositories, jeder Dev nutzt es</p>
-							<p style="margin-bottom: 15px;"><strong>💼 Professionelle Skills:</strong> Git ist in der Industrie unverzichtbar</p>
-							<p style="margin-bottom: 15px;"><strong>🚀 Open Source Revolution:</strong> Git ermöglichte weltweite Zusammenarbeit</p>
-							<p style="margin-top: 30px; font-size: 0.85em; color: #aaa;">💡 <strong>Merksatz:</strong> Ohne Git kein modernes Code-Management - Linus Torvalds hat Computing revolutioniert!</p>
-						</div>
-					</section>
-
-					<!-- 9.1 -->
-					<section>
-						<h3>Was du jetzt weißt 🎓</h3>
-						<div style="margin-top: 40px; text-align: left; font-size: 0.85em;">
-							<p style="margin-bottom: 10px;">✅ Git Grundkonzepte & warum es wichtig ist</p>
-							<p style="margin-bottom: 10px;">✅ Die 10 wichtigsten Git Befehle</p>
-							<p style="margin-bottom: 10px;">✅ Branching & parallele Entwicklung</p>
-							<p style="margin-bottom: 10px;">✅ GitHub & Pull Requests verstehen</p>
-							<p style="margin-bottom: 10px;">✅ Teamarbeit mit Git</p>
-							<p style="margin-top: 25px; font-size: 0.8em; color: #4ecdc4;"><strong>🚀 Nächste Schritte:</strong> Git lokal installieren, ein Repo erstellen, pushen zu GitHub!</p>
-						</div>
-					</section>
-				</section>
-
-				<!-- SLIDE 10: Q&A (10.x horizontal → 10.0, 10.1 vertical) -->
-				<section>
-					<!-- 10.0 -->
-					<section>
-						<h3>Gibt es noch Fragen?</h3>
-						<p style="margin-top: 60px; font-size: 0.85em;">Oder Feedback gerne!</p>
-						<div style="margin-top: 80px; text-align: center; font-size: 0.75em;">
-							<p style="margin-top: 10px;"><strong>💬 Habt keine Scheu:</strong> Fragen sind gerne gesehen!</p>
-							<p style="margin-top: 20px; font-size: 0.7em; color: #aaa;">Git ist kompliziert am Anfang, aber mit Übung wird es zu Routine.</p>
-						</div>
-					</section>
-
-					<!-- 10.1 -->
-					<section>
-						<h3>Ressourcen & Danke 🙏</h3>
-						<div style="margin-top: 40px; text-align: center; font-size: 0.7em;">
-							<p style="margin-bottom: 15px;"><strong>📚 Offizielle Ressourcen:</strong></p>
-							<ul style="margin-top: 8px; text-align: left; display: inline-block; margin-bottom: 20px;">
-								<li><a href="https://git-scm.com/" style="color: #ff6b6b;">Git Official Documentation</a></li>
-								<li><a href="https://github.com/" style="color: #ff6b6b;">GitHub (beginnen!)</a></li>
-								<li><a href="https://www.youtube.com/@LinusTech" style="color: #ff6b6b;">Linus Torvalds Channel</a></li>
+						<h3>♞ Game Rules & Validation</h3>
+						<div style="margin-top: 50px; text-align: left; font-size: 0.8em; line-height: 1.8;">
+							<p style="margin-bottom: 20px;"><strong>Rule Enforcement:</strong></p>
+							<ul style="margin-left: 20px; margin-bottom: 20px;">
+								<li>Validates ALL user moves (no illegal plays allowed)</li>
+								<li>Implements castling & promotion rules</li>
+								<li>En passant capture detection</li>
 							</ul>
-							<p style="margin-top: 20px; font-size: 0.85em; color: #4ecdc4;"><strong>Danke für's Zuhören! Happy Coding! 🚀</strong></p>
+							<p style="margin-bottom: 20px;"><strong>Error Handling:</strong></p>
+							<ul style="margin-left: 20px;">
+								<li>Detects check & checkmate positions</li>
+								<li>Flags impossible moves to user immediately</li>
+								<li>Enforces standard FIDE chess rules</li>
+							</ul>
 						</div>
 					</section>
 				</section>
+
+				<!-- SLIDE 9: Project Highlights -->
+				<section>
+					<h2>✨ Key Features</h2>
+					<div style="margin-top: 35px; display: flex; gap: 25px; font-size: 0.75em;">
+						<div style="flex: 1; text-align: left;">
+							<h4 style="color: #90ee90; margin-bottom: 12px;">🏆 Technical</h4>
+							<ul style="margin-left: 12px; line-height: 1.6;">
+								<li>Precise 2D positioning</li>
+								<li>Multi-voltage power mgmt</li>
+								<li>Real-time embedded Algorithm</li>
+								<li>Automated piece movement</li>
+							</ul>
+						</div>
+						<div style="flex: 1; text-align: left;">
+							<h4 style="color: #90ee90; margin-bottom: 12px;">🎨 Design</h4>
+							<ul style="margin-left: 12px; line-height: 1.6;">
+								<li>3D printed enclosure</li>
+								<li>Magnetic piece system</li>
+								<li>Professional hardware layout</li>
+								<li>Clean cable management</li>
+							</ul>
+						</div>
+						<div style="flex: 1; text-align: left;">
+							<h4 style="color: #90ee90; margin-bottom: 12px;">🎮 UX</h4>
+							<ul style="margin-left: 12px; line-height: 1.6;">
+								<li>Intuitive keypad input</li>
+								<li>Real-time feedback</li>
+								<li>Error messaging</li>
+								<li>Board visualization</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- SLIDE 10: Final Slide -->
+				<section>
+					<h2>🚀 Summary</h2>
+					<div style="margin-top: 50px; text-align: center; font-size: 0.9em; line-height: 2;">
+						<p style="margin-bottom: 20px;"><strong>Chess Bot = Hardware + Software + 3D Printing/Desgining </strong></p>
+						<p style="margin-bottom: 20px;">A fully automated chess opponent</p>
+						<p style="margin-bottom: 20px;">Built from <strong>ground up design</strong> to a <strong>working system</strong></p>
+						<p style="margin-top: 40px; font-size: 0.8em; color: #4ecdc4;"><strong>Thank you! Questions?</strong> ♟️</p>
+					</div>
+				</section>
+			</div>
+		</div>
 			</div>
 		</div>
 
